@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="website icon" type="png" href= "imgs/pexels-anush-gorak-1431282.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>التغذية</title>
+    <style>
+        body{
+           background-color: #070e27;
+              /* background-image: url("imgs/pexels-leon-ardho-1552242.jpg");
+              background-repeat: no-repeat;
+              background-size: cover; */
+        }
+
+
+        h2,h4 {
+          color: #fff;
+          text-align: center;
+        }
+    
+         .container {
+          width: 400px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color:rgb(255, 255, 255 ,0.1);
+        
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(201, 114, 114, 0.1);
+        } 
+    
+        label {
+          display: block;
+          margin-bottom: 10px;
+          color: #fff;
+          font-weight: bold;
+          float:right ;
+        }
+    
+        input[type="number"],
+        select {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #1a3a4d;
+          opacity: .7;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-size: 14px;
+        }
+    
+        .btn1,.btn {
+          display: block;
+          width: 100%;
+          padding: 10px;
+          margin-top: 20px;
+          background-color: #007bb5;
+          color: #ffffff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 20px;
+          font-weight: bold;
+          text-align: center;
+          
+        }
+        .p{
+          height: 170px;
+          
+        }
+        #result,
+        #res,
+        #result2,
+        #result3 ,
+        #result4{
+          margin-top: 20px;
+          padding: 10px;
+          background-color: #eeeeee6e;
+          color:#fff ;
+          border-radius: 4px;
+          font-weight: bold;
+        }
+       
+        table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        width: 400px;
+    
+    }
+    @media (min-width:200px) and (max-width:400px){
+      body{
+        width: fit-content;
+        
+      }
+    }
+    
+    th, td {
+      text-align: center;
+      border: 1px solid #ddd;
+      color: #bcbec5;
+     
+    }
+    
+    th {
+      background-color: #20273d;
+     
+    }
+    
+    .header-cell {
+      background-color: #007bb5;
+      color: white;
+    }
+    
+   .header-cell.percentage {
+      width: 25%;
+    }
+    
+    .data-cell {
+      width: 25%;
+    } 
+      </style>
+</head>
+<body>
+
+<!--nav bar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a class="navbar-brand" href="#"><span class="logo">فيتنس لايف</span></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav">
+    <li class="nav-item active">
+        <a class="nav-link" href="index.html">الرئيسية<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link"href="https://wa.me/+201014628698" target="_blank">اشترك معنا</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="free.html">الكارديو</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="bodyBuilding.html">كمال الاجسام</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="zomba.html">كلاس الزومبا</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">التغذية</a>
+    </li>
+    
+    </ul>
+</div>
+</nav>
+
+
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
+
+
+
+<br> <br>
+<!--BMR-->
+<section>
+<div class="container">
+    <h2>حساب السعرات الحرارية </h2>
+
+    <div>
+      <label for="gender">الجنس:</label>
+      <select id="gender">
+        <option value="male">ذكر</option>
+        <option value="female">أنثى</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="age">العمر:</label>
+      <input type="number" id="age" >
+    </div>
+
+    <div>
+      <label for="weight">الوزن (بالكيلوجرام):</label>
+      <input type="number" id="weight" >
+    </div>
+
+    <div>
+      <label for="height">الطول (بالسنتيمتر):</label>
+      <input type="number" id="height" >
+    </div>
+
+    <div>
+      <label for="activity-level">مستوى النشاط البدني:</label>
+      <select id="activity-level">
+        <option value="1.2">لا نشاط بدني</option>
+        <option value="1.375">نشاط خفيف (تمارين خفيفة 1-3 أيام في الأسبوع)</option>
+        <option value="1.55">نشاط معتدل (تمارين متوسطة 3-5 أيام في الأسبوع)</option>
+        <option value="1.725">نشاط مكثف (تمارين شاقة 6-7 أيام في الأسبوع)</option>
+        <option value="1.9">نشاط شديد (تمارين شاقة مع عمل جسدي شاق أو عمل ثقيل)</option>
+      </select>
+    </div>
+
+    <button class="btn1" onclick="calculateCalories()">احسب السعرات الحرارية</button>
+
+    <div id="result"></div>
+
+</div>
+</section>
+<br> <br>
+
+<div class="container">
+  <a href="#table" class="btn1">اعرف القيم الغذائية للأطعمة 👇🏽</a>
+</div> 
+
+<br> <br>
+
+<!--BMI-->
+ <section>
+    <div class="container">
+        <h2>حساب مؤشر كتلة الجسم (BMI)</h2>
+        <p style="text-align: center;">(باستثناء الرياضيين و الحوامل ومن دون ال 19 عام)</p>
+    
+        <div>
+          <label for="w">الوزن (بالكيلوجرام):</label>
+          <input type="number" id="w">
+        </div>
+    
+        <div>
+          <label for="h">الطول بالمتر (مثل 1.7):</label>
+          <input type="number" id="h">
+        </div>
+    
+        <button class="btn1" onclick="calculateBMI()">احسب مؤشر كتلة الجسم</button>
+    
+        <div id="res"></div>
+      </div>
+</section> 
+
+<br> <br>
+
+<!--protin -->
+<section>
+ <div class="container">
+    <h2>نسبة البروتين</h2>
+    <form id="proteinCalc">
+      <label for="weight2">الوزن (كجم):</label>
+      <input type="number" id="weight2" name="weight2" required>
+      <br>
+      <label for="activity2">هل تمارس الرياضة؟</label>
+      <select id="activity2" name="activity2">
+        <option value="yes">نعم</option>
+        <option value="no">لا</option>
+    </select>
+    <br>
+    <label for="gender2">الجنس:</label>
+    <select id="gender2" name="gender2">
+        <option value="male">رجل</option>
+        <option value="female">امرأة</option>
+    </select>
+    <br>
+    <button class="btn1" >نسبة البروتين </button>
+    </form>
+    <p id="result2"><span></span></p>
+</div>
+</section>
+
+<br> <br>
+<!--carb-->
+<section>
+    <div class="container">
+      <h2>نسبة الكاربوهيدرات</h2>
+      <form id="carbCalc">
+        <label for="cal">السعرات الحرارية :</label>
+        <input type="number" id="cal" name="cal" required>
+        <br>
+        <label for="activity3">هل تريد الزيادة في الوزن ؟</label>
+        <select id="activity3" name="activity3">
+          <option value="yes">نعم</option>
+          <option value="no">لا</option>
+      </select>
+      <br>
+      <label for="gender3">الجنس:</label>
+      <select id="gender3" name="gender3">
+          <option value="male">رجل</option>
+          <option value="female">امرأة</option>
+      </select>
+      <br>
+      <button class="btn1" >نسبة الكاربوهيدرات </button>
+      </form>
+      <p id="result3"><span></span></p>
+  </div>
+</section> 
+
+<br> <br>
+<!--fat-->
+ <section>
+  <div class="container">
+    
+    <h2> نسبة الدهون الصحية</h2>
+    <form id="fatCalc">
+      <label for="cal1">السعرات الحرارية :</label>
+      <input type="number" id="cal1" name="cal1" required>
+      <br>
+      <label for="activity4">هل تريد الزيادة في الوزن ؟</label>
+      <select id="activity4" name="activity4">
+        <option value="yes">نعم</option>
+        <option value="no">لا</option>
+    </select>
+    <br>
+    <label for="gender4">الجنس:</label>
+    <select id="gender4" name="gender4">
+        <option value="male">رجل</option>
+        <option value="female">امرأة</option>
+    </select>
+    <br>
+    <button class="btn1" >نسبة الدهون الصحية </button>
+    </form>
+    <p id="result4"></p>
+</div>
+</section> 
+
+
+
+<br> <br>
+<!--paragraph-->
+ <div class="container">
+   <div class="p">
+      <h4>للحصول علي جدول تدريبي ونظام غذائي مخصص لك , يرجي الاشتراك معنا</h4>
+      <a href="https://wa.me/+201014628698" target="_blank" class="btn">اشترك معنا </a>
+   </div>
+ 
+</div> 
+
+<br> <br>
+
+<!--table-->
+
+  <h2>جدول الأطعمة الصحية</h2>
+  <table id="table">
+    <tr>
+      <th>الطعام</th>
+      <th class="header-cell percentage">نسبة البروتين (لكل 100 جرام)</th>
+      <th class="header-cell percentage">نسبة الكاربوهيدرات (لكل 100 جرام)</th>
+      <th class="header-cell percentage">نسبة الدهون (لكل 100 جرام)</th>
+      <th class="header-cell percentage"> السعرات الحرارية (لكل 100 جرام)</th>
+    </tr>
+
+    <tr>
+      <td>صدور الفراخ</td>
+      <td class="data-cell">31 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">3.6 جرام</td>
+      <td class="data-cell">165 سعرة حرارية</td>
+    </tr>
+
+    <tr>
+      <td>وراك الفراخ</td>
+      <td class="data-cell">26 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">8.14 جرام</td>
+      <td class="data-cell">220 سعرة حرارية</td>
+    </tr>
+
+    <tr>
+      <td> اللحمة الحمراء</td>
+      <td class="data-cell">20-26 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">17 جرام</td>
+      <td class="data-cell">250-300 سعرة حرارية</td>
+    </tr>
+
+    <tr>
+      <td>البط </td>
+      <td class="data-cell">24 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">3 جرام</td>
+      <td class="data-cell">337 سعرة حرارية</td>
+    </tr>
+
+    <tr>
+      <td>الحمام</td>
+      <td class="data-cell">25 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">4.3 جرام</td>
+      <td class="data-cell">165 سعرة حرارية</td>
+    </tr>
+
+    <tr>
+      <td>السمان </td>
+      <td class="data-cell">24 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">5 جرام</td>
+      <td class="data-cell">337 سعرة حرارية</td>
+    </tr>
+
+    <tr>
+      <td>لحم الخروف</td>
+      <td class="data-cell">20-25 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">17-21 جرام</td>
+      <td class="data-cell">250-300 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>لحم الماعز</td>
+      <td class="data-cell">20-26 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">2.6 جرام</td>
+      <td class="data-cell">120-160 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>السمك البلطي</td>
+      <td class="data-cell">19 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">6 جرام</td>
+      <td class="data-cell">130 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>السمك البوري </td>
+      <td class="data-cell">22 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">2.5 جرام</td>
+      <td class="data-cell"> 205 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>السمك المكاريل</td>
+      <td class="data-cell">20 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">13 جرام</td>
+      <td class="data-cell"> 205 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>السمك الشبار </td>
+      <td class="data-cell">20 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">3 جرام</td>
+      <td class="data-cell"> 165 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الجمبري </td>
+      <td class="data-cell">20 جرام</td>
+      <td class="data-cell">0.5 جرام</td>
+      <td class="data-cell">0.5 جرام</td>
+      <td class="data-cell">85 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>التونة </td>
+      <td class="data-cell">30 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">0.9 جرام</td>
+      <td class="data-cell">130 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>استاكوزا</td>
+      <td class="data-cell">18 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">0.5 جرام</td>
+      <td class="data-cell">80 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td> سبيط</td>
+      <td class="data-cell">18 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">1 جرام</td>
+      <td class="data-cell">90 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td> بلح البحر</td>
+      <td class="data-cell">14 جرام</td>
+      <td class="data-cell">2.2 جرام</td>
+      <td class="data-cell">0.8 جرام</td>
+      <td class="data-cell">70 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td> سمك فيليه</td>
+      <td class="data-cell">18-22 جرام</td>
+      <td class="data-cell">3 جرام</td>
+      <td class="data-cell">3 جرام</td>
+      <td class="data-cell">100 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>قراميط</td>
+      <td class="data-cell">20 جرام</td>
+      <td class="data-cell">0 جرام</td>
+      <td class="data-cell">0.5 جرام</td>
+      <td class="data-cell">90 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td> اللبن</td>
+      <td class="data-cell">3.2 جرام</td>
+      <td class="data-cell">4.7 جرام</td>
+      <td class="data-cell">3.6 جرام</td>
+      <td class="data-cell">61 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الجبنة القريش </td>
+      <td class="data-cell">17 جرام</td>
+      <td class="data-cell">2.5 جرام</td>
+      <td class="data-cell">15 جرام</td>
+      <td class="data-cell">80 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الجبنة الاسطنبولي</td>
+      <td class="data-cell">23 جرام</td>
+      <td class="data-cell">0.5 جرام</td>
+      <td class="data-cell">17 جرام</td>
+      <td class="data-cell">240 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الجبنة التركية(الرومي)</td>
+      <td class="data-cell">22 جرام</td>
+      <td class="data-cell">0.9 جرام</td>
+      <td class="data-cell">17 جرام</td>
+      <td class="data-cell">387 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>زبادي يوناني</td>
+      <td class="data-cell">10 جرام</td>
+      <td class="data-cell">6 جرام</td>
+      <td class="data-cell">10 جرام</td>
+      <td class="data-cell">97 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>زبادي عادي</td>
+      <td class="data-cell">3.5 جرام</td>
+      <td class="data-cell">4.7 جرام</td>
+      <td class="data-cell">3.5 جرام</td>
+      <td class="data-cell">61 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>البيض (المسلوق)</td>
+      <td class="data-cell">13 جرام</td>
+      <td class="data-cell">1.1 جرام</td>
+      <td class="data-cell">11 جرام</td>
+      <td class="data-cell">80 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>فول مدمس</td>
+      <td class="data-cell">8.7 جرام</td>
+      <td class="data-cell">20.4 جرام</td>
+      <td class="data-cell">1.4 جرام</td>
+      <td class="data-cell">120 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>فول صويا</td>
+      <td class="data-cell">36 جرام</td>
+      <td class="data-cell">30 جرام</td>
+      <td class="data-cell">20 جرام</td>
+      <td class="data-cell">173 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>عدس</td>
+      <td class="data-cell">9 جرام</td>
+      <td class="data-cell">20 جرام</td>
+      <td class="data-cell">1 جرام</td>
+      <td class="data-cell">116 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>حمص</td>
+      <td class="data-cell">19 جرام</td>
+      <td class="data-cell">61 جرام</td>
+      <td class="data-cell">6 جرام</td>
+      <td class="data-cell">120 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>ترمس</td>
+      <td class="data-cell">19 جرام</td>
+      <td class="data-cell">52 جرام</td>
+      <td class="data-cell">17 جرام</td>
+      <td class="data-cell">370 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>فاصوليا بيضاء</td>
+      <td class="data-cell">21 جرام</td>
+      <td class="data-cell">62 جرام</td>
+      <td class="data-cell">0.8 جرام</td>
+      <td class="data-cell">140 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>لوبيا</td>
+      <td class="data-cell">21 جرام</td>
+      <td class="data-cell">63 جرام</td>
+      <td class="data-cell">1.4 جرام</td>
+      <td class="data-cell">130 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>اللب السوري</td>
+      <td class="data-cell">51 جرام</td>
+      <td class="data-cell">57 جرام</td>
+      <td class="data-cell">1.3 جرام</td>
+      <td class="data-cell">565 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>اللب الابيض</td>
+      <td class="data-cell">24 جرام</td>
+      <td class="data-cell">63 جرام</td>
+      <td class="data-cell">1.1 جرام</td>
+      <td class="data-cell">562 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الفول السوداني</td>
+      <td class="data-cell">26 جرام</td>
+      <td class="data-cell">16 جرام</td>
+      <td class="data-cell">49 جرام</td>
+      <td class="data-cell">567 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>زبدة الفول السوداني</td>
+      <td class="data-cell">26 جرام</td>
+      <td class="data-cell">20 جرام</td>
+      <td class="data-cell">50 جرام</td>
+      <td class="data-cell">588 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الكاجو</td>
+      <td class="data-cell">18 جرام</td>
+      <td class="data-cell">30 جرام</td>
+      <td class="data-cell">44 جرام</td>
+      <td class="data-cell">553 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الفسدق</td>
+      <td class="data-cell">14 جرام</td>
+      <td class="data-cell">18 جرام</td>
+      <td class="data-cell">61 جرام</td>
+      <td class="data-cell">567 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>عين الجمل</td>
+      <td class="data-cell">21 جرام</td>
+      <td class="data-cell">28 جرام</td>
+      <td class="data-cell">49 جرام</td>
+      <td class="data-cell">645 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>لوز</td>
+      <td class="data-cell">21 جرام</td>
+      <td class="data-cell">22 جرام</td>
+      <td class="data-cell">49 جرام</td>
+      <td class="data-cell">607 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>بندق</td>
+      <td class="data-cell">14 جرام</td>
+      <td class="data-cell">17 جرام</td>
+      <td class="data-cell">61 جرام</td>
+      <td class="data-cell">628 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>كاكاو</td>
+      <td class="data-cell">19 جرام</td>
+      <td class="data-cell">14 جرام</td>
+      <td class="data-cell">23 جرام</td>
+      <td class="data-cell">229 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الشيكولاتة الداكنة</td>
+      <td class="data-cell">5 جرام</td>
+      <td class="data-cell">47 جرام</td>
+      <td class="data-cell">43 جرام</td>
+      <td class="data-cell">500-550 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الشيكولاتة البيضاء</td>
+      <td class="data-cell">7 جرام</td>
+      <td class="data-cell">60 جرام</td>
+      <td class="data-cell">30 جرام</td>
+      <td class="data-cell">560-600 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الأرز الأبيض</td>
+      <td class="data-cell">3 جرام</td>
+      <td class="data-cell">28 جرام</td>
+      <td class="data-cell">1 جرام</td>
+      <td class="data-cell">130 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الأرز البني</td>
+      <td class="data-cell">5 جرام</td>
+      <td class="data-cell">30 جرام</td>
+      <td class="data-cell">2 جرام</td>
+      <td class="data-cell">111 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الأرز البسمتي</td>
+      <td class="data-cell">5 جرام</td>
+      <td class="data-cell">32 جرام</td>
+      <td class="data-cell">1 جرام</td>
+      <td class="data-cell">130 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>المكرونة البنية</td>
+      <td class="data-cell">2 جرام</td>
+      <td class="data-cell">25 جرام</td>
+      <td class="data-cell">1 جرام</td>
+      <td class="data-cell">125 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>المكرونة البيضاء</td>
+      <td class="data-cell">2 جرام</td>
+      <td class="data-cell">26 جرام</td>
+      <td class="data-cell">1 جرام</td>
+      <td class="data-cell">130 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الشوفان</td>
+      <td class="data-cell">13 جرام</td>
+      <td class="data-cell">60 جرام</td>
+      <td class="data-cell">6 جرام</td>
+      <td class="data-cell">375 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>البطاطس</td>
+      <td class="data-cell">2 جرام</td>
+      <td class="data-cell">17 جرام</td>
+      <td class="data-cell">0.1 جرام</td>
+      <td class="data-cell">77 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>العيش التوست</td>
+      <td class="data-cell">9 جرام</td>
+      <td class="data-cell">20 جرام</td>
+      <td class="data-cell">3 جرام</td>
+      <td class="data-cell">320-350 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>البطاطا</td>
+      <td class="data-cell">2 جرام</td>
+      <td class="data-cell">17 جرام</td>
+      <td class="data-cell">0.1 جرام</td>
+      <td class="data-cell">77 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>العيش الأبيض</td>
+      <td class="data-cell">8 جرام</td>
+      <td class="data-cell">50 جرام</td>
+      <td class="data-cell">2 جرام</td>
+      <td class="data-cell">265 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الموز</td>
+      <td class="data-cell">1 جرام</td>
+      <td class="data-cell">22 جرام</td>
+      <td class="data-cell">0.2 جرام</td>
+      <td class="data-cell">96 سعرة حرارية</td>
+
+    </tr>
+
+
+    <tr>
+      <td>التفاح</td>
+      <td class="data-cell">0.3 جرام</td>
+      <td class="data-cell">14 جرام</td>
+      <td class="data-cell">0.4 جرام</td>
+      <td class="data-cell">52 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>جوافا</td>
+      <td class="data-cell">1.1 جرام</td>
+      <td class="data-cell">23 جرام</td>
+      <td class="data-cell">0.4 جرام</td>
+      <td class="data-cell">68 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>الفراولة</td>
+      <td class="data-cell">1.1 جرام</td>
+      <td class="data-cell">8 جرام</td>
+      <td class="data-cell">0.4 جرام</td>
+      <td class="data-cell">32 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>كاكا</td>
+      <td class="data-cell">1.1 جرام</td>
+      <td class="data-cell">34 جرام</td>
+      <td class="data-cell">0.4 جرام</td>
+      <td class="data-cell">188 سعرة حرارية</td>
+
+    </tr>
+
+
+    <tr>
+      <td>عنب</td>
+      <td class="data-cell">0.6 جرام</td>
+      <td class="data-cell">18 جرام</td>
+      <td class="data-cell">0.2 جرام</td>
+      <td class="data-cell">69 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>بلح (تمر)</td>
+      <td class="data-cell">2.5 جرام</td>
+      <td class="data-cell">63 جرام</td>
+      <td class="data-cell">0.4 جرام</td>
+      <td class="data-cell">282 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>تين شوكي</td>
+      <td class="data-cell">0.5 جرام</td>
+      <td class="data-cell">19 جرام</td>
+      <td class="data-cell">0.4 جرام</td>
+      <td class="data-cell">43 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>تين برشومي</td>
+      <td class="data-cell">0.4 جرام</td>
+      <td class="data-cell">19 جرام</td>
+      <td class="data-cell">0.3 جرام</td>
+      <td class="data-cell">74 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>خوخ</td>
+      <td class="data-cell">0.9 جرام</td>
+      <td class="data-cell">19 جرام</td>
+      <td class="data-cell">0.1 جرام</td>
+      <td class="data-cell">39 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>مشمش</td>
+      <td class="data-cell">0.5 جرام</td>
+      <td class="data-cell">14 جرام</td>
+      <td class="data-cell">1 جرام</td>
+      <td class="data-cell">48 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>مانجا</td>
+      <td class="data-cell">0.8 جرام</td>
+      <td class="data-cell">14 جرام</td>
+      <td class="data-cell">0.4 جرام</td>
+      <td class="data-cell">60 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>بطيخ</td>
+      <td class="data-cell">0.6 جرام</td>
+      <td class="data-cell">8 جرام</td>
+      <td class="data-cell">0.2 جرام</td>
+      <td class="data-cell">30 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>أناناس</td>
+      <td class="data-cell">0.5 جرام</td>
+      <td class="data-cell">13 جرام</td>
+      <td class="data-cell">2 جرام</td>
+      <td class="data-cell">50 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>برقوق</td>
+      <td class="data-cell">0.7 جرام</td>
+      <td class="data-cell">9 جرام</td>
+      <td class="data-cell">0.1 جرام</td>
+      <td class="data-cell">39 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>دوم</td>
+      <td class="data-cell">0.7 جرام</td>
+      <td class="data-cell">16 جرام</td>
+      <td class="data-cell">0.1 جرام</td>
+      <td class="data-cell">67 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>كيوي</td>
+      <td class="data-cell">1.1 جرام</td>
+      <td class="data-cell">14 جرام</td>
+      <td class="data-cell">0.5 جرام</td>
+      <td class="data-cell">61 سعرة حرارية</td>
+
+    </tr>
+
+    <tr>
+      <td>برتقال</td>
+      <td class="data-cell">1 جرام</td>
+      <td class="data-cell">12 جرام</td>
+      <td class="data-cell">0.2 جرام</td>
+      <td class="data-cell">43 سعرة حرارية</td>
+
+    </tr>
+
+  </table>
+
+
+<br> <br>
+
+<!--paragraph-->
+ <div class="container">
+   <div class="p">
+      <h4>للحصول علي جدول تدريبي ونظام غذائي مخصص لك , يرجي الاشتراك معنا</h4>
+      <a href="https://wa.me/+201014628698" target="_blank" class="btn">اشترك معنا </a>
+   </div>
+</div> 
+
+<!--footer-->
+<section class="">
+  <!-- Footer -->
+  <footer class="text-center text-white mt-5" style="background-color: #242949; color: #ffffff;" >
+    <!-- Grid container -->
+    <div class=" p-4 pb-0">
+      <!-- Section: CTA -->
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <a href="https://wa.me/+201014628698" target="_blank" class=" btn-outline-light "> 
+            <h5>تواصل معنا</h5>
+          </a>
+        </p>
+      </section>
+      <!-- Section: CTA -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 حقوق النشر:
+      <a href="index.html" class="text-primary" >فيتنس لايف</a>
+      <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" href="https://wa.me/+201014628698" target="_blank">اشترك معنا</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="free.html">الزيارة المجانية </a>
+          </li>
+          
+          </ul>
+  </footer>
+  <!-- Footer -->
+</section>
+
+<script src="js/jquery-3.7.0.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="nutrition.js"></script>
+</body> 
+</html>
